@@ -16,7 +16,6 @@
     'data': [
         'security/academic_security.xml',
         'security/ir.model.access.csv',
-        'views/action_views.xml',       # Agregamos el archivo de acciones primero
         'views/menu_views.xml',         # Agregamos el archivo de menús
         'views/course_views.xml',
         'views/student_views.xml',
@@ -26,6 +25,7 @@
         'views/notice_views.xml',  # Vista de aviso
         'views/notice_calendar_view.xml',  # Vista de agenda
         'views/notice_recipient_view.xml', #vista destinatario
+        'views/action_views.xml',       # Agregamos el archivo de acciones primero
         
     ],
     'installable': True,
