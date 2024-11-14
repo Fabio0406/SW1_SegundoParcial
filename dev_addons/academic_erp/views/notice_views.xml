@@ -43,7 +43,7 @@
                             </field>
                         </group>
                         <!-- Subvista de Destinatarios con su Estado Individual -->
-                        <group string="Recipients Status" groups="base.group_system">
+                        <group string="Recipients Status">
                             <field name="recipients_ids">
                                 <tree editable="bottom">
                                     <field name="user_id" string="Recipient"/>
