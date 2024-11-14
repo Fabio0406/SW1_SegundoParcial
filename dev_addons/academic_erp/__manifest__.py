@@ -16,17 +16,16 @@
     'data': [
         'security/academic_security.xml',
         'security/ir.model.access.csv',
-        'views/action_views.xml',       # Agregamos el archivo de acciones primero
-        'views/menu_views.xml',         # Agregamos el archivo de menús
+        'views/notice_calendar_view.xml',  # Vista de agenda cargada primero
+        'views/action_views.xml',          # Archivo de acciones cargado después
+        'views/menu_views.xml',
         'views/course_views.xml',
         'views/student_views.xml',
         'views/parent_views.xml',
         'views/teacher_views.xml',
         'views/subject_views.xml',
-        'views/notice_views.xml',  # Vista de aviso
-        'views/notice_calendar_view.xml',  # Vista de agenda
-        'views/notice_recipient_view.xml', #vista destinatario
-        
+        'views/notice_views.xml',
+        'views/notice_recipient_view.xml',        
     ],
     'installable': True,
     'application': True,
