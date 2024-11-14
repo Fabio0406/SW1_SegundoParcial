@@ -58,5 +58,14 @@
             <field name="view_mode">tree,form</field>
             <field name="domain">[('user_id', '=', uid)]</field> <!-- Solo los avisos del usuario actual -->
         </record>
+
+        <record id="action_notice_calendar" model="ir.actions.act_window">
+            <field name="name">Agenda</field>
+            <field name="res_model">academic_erp.notice</field>
+            <field name="view_mode">calendar</field>
+            <field name="view_id" ref="view_notice_calendar"/>
+            <field name="context">{}</field>
+            <field name="domain">[]</field> <!-- Aplicaremos el dominio dinámico desde el modelo -->
+        </record>
     </data>
 </odoo>
