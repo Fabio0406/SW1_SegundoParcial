@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista de Formulario para Padres (acceso solo a información de sus hijos) -->
+        <record id="view_parent_form" model="ir.ui.view">
+            <field name="name">Parent Form</field>
+            <field name="model">academic_erp.parent</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="user_id" required="1"/> <!-- Campo para seleccionar el usuario del padre -->
+                            <field name="phone"/>
+                            <field name="student_ids" widget="many2many_tags" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+            <field name="groups_id" eval="[(4, ref('academic_erp.group_academic_parent'))]"/>
+        </record>
+    </data> 
+</odoo>

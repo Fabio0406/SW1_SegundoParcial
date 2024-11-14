@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Acción para ver Cursos -->
+        <record id="action_academic_courses" model="ir.actions.act_window">
+            <field name="name">Courses</field>
+            <field name="res_model">academic_erp.course</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para ver Estudiantes -->
+        <record id="action_academic_students" model="ir.actions.act_window">
+            <field name="name">Students</field>
+            <field name="res_model">academic_erp.student</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para ver Padres -->
+        <record id="action_academic_parents" model="ir.actions.act_window">
+            <field name="name">Parents</field>
+            <field name="res_model">academic_erp.parent</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para ver Profesores -->
+        <record id="action_academic_teachers" model="ir.actions.act_window">
+            <field name="name">Teachers</field>
+            <field name="res_model">academic_erp.teacher</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para ver Materias -->
+        <record id="action_academic_subjects" model="ir.actions.act_window">
+            <field name="name">Subjects</field>
+            <field name="res_model">academic_erp.subject</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para la Vista de Calendario -->
+        <record id="action_notice_calendar" model="ir.actions.act_window">
+            <field name="name">Agenda</field>
+            <field name="res_model">academic_erp.notice</field>
+            <field name="view_mode">calendar,tree,form</field>
+            <field name="view_id" ref="view_notice_calendar"/>
+        </record>
+
+        <!-- Acción para Avisos Generales -->
+        <record id="action_notice" model="ir.actions.act_window">
+            <field name="name">Notices</field>
+            <field name="res_model">academic_erp.notice</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- Acción para que los destinatarios vean sus avisos -->
+        <record id="action_notice_recipient" model="ir.actions.act_window">
+            <field name="name">My Notices</field>
+            <field name="res_model">academic_erp.notice.recipient</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('user_id', '=', uid)]</field> <!-- Solo los avisos del usuario actual -->
+        </record>
+    </data>
+</odoo>

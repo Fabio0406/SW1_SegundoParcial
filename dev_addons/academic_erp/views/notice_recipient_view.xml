@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista de Formulario para los destinatarios de un aviso -->
+        <record id="view_notice_recipient_form" model="ir.ui.view">
+            <field name="name">Notice Recipient Form</field>
+            <field name="model">academic_erp.notice.recipient</field>
+            <field name="arch" type="xml">
+                <form string="Notice Details">
+                    <header>
+                        <button name="mark_as_read" type="object" string="Mark as Read" class="btn-primary"/>
+                        <field name="state" readonly="1"/>
+                    </header>
+                    <sheet>
+                        <!-- Título y Estado del Aviso -->
+                        <header>
+                            <field name="state" readonly="1"/>
+                        </header>
+                        <group>
+                            <field name="notice_id" readonly="1">
+                                <form string="Notice Details">
+                                    <group>
+                                        <field name="titulo" readonly="1"/>
+                                        <field name="tipo_especifico" readonly="1"/>
+                                        <field name="fecha_publicacion" readonly="1"/>
+                                        <field name="descripcion" readonly="1"/>
+                                    </group>
+                                    <group string="Attachments">
+                                        <field name="attachment_ids" readonly="1">
+                                            <tree>
+                                                <field name="name"/>
+                                                <field name="file_type"/>
+                                                <field name="file" filename="name"/>
+                                            </tree>
+                                        </field>
+                                    </group>
+                                </form>
+                            </field>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

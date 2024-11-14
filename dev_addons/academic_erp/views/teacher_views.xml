@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista de Formulario para Profesores (ver cursos y estudiantes asignados) -->
+        <record id="view_teacher_form" model="ir.ui.view">
+            <field name="name">Teacher Form</field>
+            <field name="model">academic_erp.teacher</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="user_id" required="1"/> <!-- Campo para seleccionar el usuario del profesor -->
+                            <field name="subject_ids" widget="many2many_tags"/>
+                        </group>
+                        <notebook>
+                            <page string="Courses">
+                                <field name="course_ids" readonly="1">
+                                    <tree>
+                                        <field name="name"/>
+                                        <field name="level"/>
+                                        <field name="section"/>
+                                        <field name="student_ids"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+            <field name="groups_id" eval="[(4, ref('academic_erp.group_academic_teacher'))]"/>
+        </record>
+    </data> 
+</odoo>

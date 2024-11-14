@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="group_academic_student" model="res.groups">
+            <field name="name">Student</field>
+        </record>
+        <record id="group_academic_parent" model="res.groups">
+            <field name="name">Parent</field>
+        </record>
+        <record id="group_academic_teacher" model="res.groups">
+            <field name="name">Teacher</field>
+        </record>
+        <record id="group_academic_admin" model="res.groups">
+            <field name="name">Academic Admin</field>
+        </record>
+    </data>
+</odoo>

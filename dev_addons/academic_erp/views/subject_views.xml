@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista de Árbol para Administradores (acceso completo a materias) -->
+        <record id="view_subject_tree_admin" model="ir.ui.view">
+            <field name="name">Subject Tree for Admin</field>
+            <field name="model">academic_erp.subject</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="course_ids"/>
+                    <field name="teacher_ids"/>
+                </tree>
+            </field>
+            <field name="groups_id" eval="[(4, ref('academic_erp.group_academic_admin'))]"/>
+        </record>
+
+        <!-- Vista de Formulario para Administradores (acceso completo a materias) -->
+        <record id="view_subject_form_admin" model="ir.ui.view">
+            <field name="name">Subject Form for Admin</field>
+            <field name="model">academic_erp.subject</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="course_ids" widget="many2many_tags"/>
+                            <field name="teacher_ids" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+            <field name="groups_id" eval="[(4, ref('academic_erp.group_academic_admin'))]"/>
+        </record>
+
+        <!-- Vista de Árbol para Profesores (solo acceso a las materias que enseñan) -->
+        <record id="view_subject_tree_teacher" model="ir.ui.view">
+            <field name="name">Subject Tree for Teacher</field>
+            <field name="model">academic_erp.subject</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="course_ids"/>
+                </tree>
+            </field>
+            <field name="groups_id" eval="[(4, ref('academic_erp.group_academic_teacher'))]"/>
+        </record>
+
+        <!-- Vista de Formulario para Profesores (solo acceso a sus materias) -->
+        <record id="view_subject_form_teacher" model="ir.ui.view">
+            <field name="name">Subject Form for Teacher</field>
+            <field name="model">academic_erp.subject</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name" readonly="1"/>
+                            <field name="course_ids" readonly="1" widget="many2many_tags"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+            <field name="groups_id" eval="[(4, ref('academic_erp.group_academic_teacher'))]"/>
+        </record>
+    </data> 
+</odoo>

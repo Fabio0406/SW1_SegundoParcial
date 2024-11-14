@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Vista de Árbol para Administradores (acceso completo a cursos) -->
+        <record id="view_course_tree_admin" model="ir.ui.view">
+            <field name="name">Course Tree for Admin</field>
+            <field name="model">academic_erp.course</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="level"/>
+                    <field name="section"/>
+                    <field name="student_ids"/>
+                    <field name="teacher_id"/>
+                    <field name="subject_ids"/>
+                </tree>
+            </field>
+            <field name="groups_id" eval="[(4, ref('academic_erp.group_academic_admin'))]"/>
+        </record>
+
+        <!-- Vista de Árbol para Profesores (solo cursos asignados) -->
+        <record id="view_course_tree_teacher" model="ir.ui.view">
+            <field name="name">Course Tree for Teacher</field>
+            <field name="model">academic_erp.course</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="level"/>
+                    <field name="section"/>
+                    <field name="student_ids"/>
+                </tree>
+            </field>
+            <field name="groups_id" eval="[(4, ref('academic_erp.group_academic_teacher'))]"/>
+        </record>
+
+        <!-- Vista de Formulario para Profesores (ver estudiantes del curso asignado) -->
+        <record id="view_course_form_teacher" model="ir.ui.view">
+            <field name="name">Course Form for Teacher</field>
+            <field name="model">academic_erp.course</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="level"/>
+                            <field name="section"/>
+                            <field name="teacher_id"/> <!-- Campo para seleccionar el profesor -->
+                        </group>
+                        <group string="Subjects and Students">
+                            <field name="subject_ids" widget="many2many_tags"/>
+                            <field name="student_ids" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+            <field name="groups_id" eval="[(4, ref('academic_erp.group_academic_teacher'))]"/>
+        </record>
+    </data>
+</odoo>

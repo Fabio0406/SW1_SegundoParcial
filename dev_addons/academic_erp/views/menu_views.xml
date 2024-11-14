@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Menú principal del módulo -->
+        <menuitem id="menu_academic_erp_root" name="Academic ERP" sequence="1"/>
+
+        <!-- Menú para cursos (visible para administrativos y profesores) -->
+        <menuitem id="menu_academic_courses" name="Courses" parent="menu_academic_erp_root"
+                action="academic_erp.action_academic_courses"
+                groups="academic_erp.group_academic_admin,academic_erp.group_academic_teacher"/>
+                
+        <!-- Menú para estudiantes (visible para estudiantes y administrativos) -->
+        <menuitem id="menu_academic_students" name="Students" parent="menu_academic_erp_root"
+                action="academic_erp.action_academic_students"
+                groups="academic_erp.group_academic_student,academic_erp.group_academic_admin"/>
+
+        <!-- Menú para padres (visible para administrativos) -->
+        <menuitem id="menu_academic_parents" name="Parents" parent="menu_academic_erp_root"
+                action="academic_erp.action_academic_parents"
+                groups="academic_erp.group_academic_admin"/>
+
+        <!-- Menú para profesores (visible para admin) -->
+        <menuitem id="menu_academic_teachers" name="Teachers" parent="menu_academic_erp_root"
+                action="academic_erp.action_academic_teachers"
+                groups="academic_erp.group_academic_admin"/>
+
+        <!-- Menú para materias (visible para administrativos y profesores) -->
+        <menuitem id="menu_academic_subjects" name="Subjects" parent="menu_academic_erp_root"
+                action="academic_erp.action_academic_subjects"
+                groups="academic_erp.group_academic_admin,academic_erp.group_academic_teacher"/>
+         
+        <!-- Menú para la Agenda -->
+        <menuitem id="menu_notice_calendar" name="Agenda" parent="menu_academic_erp_root" action="academic_erp.action_notice_calendar"/>
+        
+        <!-- Menús para Noticias-->
+        <menuitem id="menu_notice_root" name="Notices" parent="menu_academic_erp_root" 
+        groups="academic_erp.group_academic_admin,academic_erp.group_academic_teacher"
+        action="academic_erp.action_notice"/>
+
+        <!-- Menú para destinatarios, accesible desde su panel -->
+        <menuitem id="menu_notice_recipient" name="My Notices" parent="academic_erp.menu_academic_erp_root" action="academic_erp.action_notice_recipient"/>
+    </data>
+</odoo>
